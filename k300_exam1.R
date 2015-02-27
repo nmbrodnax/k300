@@ -15,3 +15,18 @@ income <- c(2500,3600,3100,2100,2600,2200,3000,1800)
 pdf(file="exam1_scatter.pdf",family="CM Roman")
 plot(age,income,main="Scatter Plot of Age v. Income",pch=16)
 dev.off()
+
+#Exam performance
+scores <- data.frame(read.csv("sp15_exam1.csv",header=T))
+mean <- mean(scores$score)
+median <- median(scores$score)
+range <- range(scores$score)
+
+pdf(file="exam1_score_density.pdf",family="CM Roman")
+plot(density(scores$score),main="Spring 2015 Exam 1 Score Distribution",xlab="Score (Out of 100)")
+dev.off()
+
+pdf(file="exam1_score_hist.pdf",family="CM Roman")
+title <- "Spring 2015 Exam 1 Score Distribution"
+hist(scores$score,main=title,xlab="Score (Out of 100)",xlim=range(50,120),breaks=30,col="gray")
+dev.off()
